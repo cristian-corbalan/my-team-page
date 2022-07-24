@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+// ------------------------------- Mixins
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+@mixin font($font-size:2rem, $font-weight:700, $text-transform:none) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  text-transform: $text-transform;
+}
+
+@mixin sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@mixin for-size($size) {
+  @if $size == phone-only {
+    @media (max-width: 559px) {
+      @content;
+    }
+  } @else if $size == small-tablet-up {
+    @media (min-width: 600px) {
+      @content;
+    }
+  } @else if $size == tablet-up {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $size == desktop-up {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+}
+
+// ------------------------------- General
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  animation: fadeIn 300ms;
+}
+
+// ------------------------------- Animations
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+// ------------------------------- Header
+
+.header {
+  padding: 4.5rem .75rem 2rem .75rem;
+}
+
+.header__title{
+  
+}
+
+// ------------------------------- Footer
+
+// ------------------------------- Content
+
